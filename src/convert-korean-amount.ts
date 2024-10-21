@@ -4,10 +4,12 @@ const UNIT_WORDS = ["", "만", "억", "조", "경"];
 export type Options = {
   wordSpacing?: boolean;
   withWonSuffix?: boolean;
+  useComma?: boolean;
 };
+
 const convertKoreanAmount = (
   value: number,
-  { wordSpacing = true, withWonSuffix = true }: Options = {}
+  { wordSpacing = true, withWonSuffix = true, useComma = true }: Options = {}
 ) => {
   let result = UNIT_WORDS.reduce((prev, curr, i) => {
     let v = Math.floor(
@@ -16,7 +18,7 @@ const convertKoreanAmount = (
 
     if (v === 0) return prev;
 
-    return `${v.toLocaleString()}${curr}` + (wordSpacing ? " " : "") + prev;
+    return `${useComma ? v.toLocaleString() : v}${curr}` + (wordSpacing ? " " : "") + prev;
   }, "");
 
   const lastSpaceIndex = result.lastIndexOf(" ");
