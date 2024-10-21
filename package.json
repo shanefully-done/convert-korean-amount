@@ -1,6 +1,6 @@
 {
   "name": "convert-korean-amount",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "숫자를 만, 억, 조, 경 등 만 단위 한글로 변경",
   "main": "lib/convert-korean-amount.js",
   "types": "lib/convert-korean-amount.d.ts",
